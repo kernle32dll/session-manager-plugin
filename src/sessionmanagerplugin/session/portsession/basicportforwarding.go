@@ -150,7 +150,7 @@ func (p *BasicPortForwarding) startLocalListener(log log.T, portNumber string) (
 		}
 		displayMessage = fmt.Sprintf("Unix socket %s opened for sessionId %s.", p.portParameters.LocalUnixSocket, p.sessionId)
 	default:
-		if listener, err = getNewListener("tcp", "localhost:"+portNumber); err != nil {
+		if listener, err = getNewListener("tcp", "0.0.0.0:"+portNumber); err != nil {
 			return
 		}
 		// get port number the TCP listener opened

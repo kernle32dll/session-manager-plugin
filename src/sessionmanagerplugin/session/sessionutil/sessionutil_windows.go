@@ -81,7 +81,7 @@ func (d *DisplayMode) DisplayMessage(log log.T, message message.ClientMessage) {
 func NewListener(log log.T, address string) (net.Listener, error) {
 	if listener, err := net.Listen("unix", address); err != nil {
 		log.Infof("Failed to open unix socket listener, %v. Starting TCP listener.", err)
-		return net.Listen("tcp", "localhost:0")
+		return net.Listen("tcp", "0.0.0.0:0")
 	} else {
 		return listener, err
 	}
